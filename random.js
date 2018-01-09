@@ -58,6 +58,13 @@ class Random {
       time: new Date()
     }
   }
+  write(file) { // writing in files in JS is asynchronous
+    let data = this.getMostRecent();
+    jsonfile.writeFile(file, data, err => {
+      // console.log(err);
+    })
+    console.log(`write successfully in the file: ${file} at: `, data.time);
+  }
 
 
 }
