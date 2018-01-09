@@ -30,6 +30,28 @@ class Random {
     return this.list[index];
   }
 
+  storeOneHundred() { // draft 100 random nums and store in an array. the most recent comes the last.
+    let n = this.numOfValue;
+    while (n > 0) {
+      let num = this.getRandom();
+      this.lastOneHundred.push(num);
+      n--;
+    }
+  }
+  getFreq() { // display each num and its frequency
+    let map = {};
+    this.lastOneHundred.forEach(item => {
+      if (map.hasOwnProperty(item)) {
+        map[item]++
+      } else {
+        map[item] = 1;
+      }
+    })
+    for (let key in map) {
+      map[key] = map[key] / this.lastOneHundred.length;
+    }
+    console.log(map);
+  }
 
 }
 
