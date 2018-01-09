@@ -65,7 +65,15 @@ class Random {
     })
     console.log(`write successfully in the file: ${file} at: `, data.time);
   }
-
+  writeInThreads() {
+    let threads = [];
+    let n = 1;
+    while (n <= this.numOfThreads) {
+      threads.push(this.write(`data/thread_${n}.json`));
+      n++;
+    }
+    Promise.all(threads); // using promise to handle asynchronous call to make sure they are called one by one
+  }
 
 }
 
