@@ -52,6 +52,13 @@ class Random {
     }
     console.log(map);
   }
+  getMostRecent() { // get the most recent num and its time stamp
+    return {
+      value: this.lastOneHundred.pop(),
+      time: new Date()
+    }
+  }
+
 
 }
 
